@@ -1,6 +1,6 @@
 Name:           maven-site-plugin
 Version:        2.2
-Release:        2
+Release:        3
 Summary:        Maven Site Plugin
 
 Group:          Development/Java
@@ -28,9 +28,9 @@ BuildRequires: maven-surefire-plugin
 BuildRequires: maven-surefire-provider-junit
 BuildRequires: maven-plugin-testing-harness
 BuildRequires: maven-plugin-cobertura
-BuildRequires: jetty
+BuildRequires: jetty5
 Requires: maven2
-Requires: jetty
+Requires: jetty5
 Requires: java
 Requires: jpackage-utils
 Requires: maven-doxia-tools
