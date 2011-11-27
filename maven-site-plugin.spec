@@ -1,6 +1,6 @@
 Name:           maven-site-plugin
 Version:        2.2
-Release:        3
+Release:        5
 Summary:        Maven Site Plugin
 
 Group:          Development/Java
