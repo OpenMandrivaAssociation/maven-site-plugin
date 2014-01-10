@@ -63,7 +63,8 @@ Provides:       maven2-plugin-site = %{version}-%{release}
 Obsoletes:      maven2-plugin-site <= 0:2.0.8
 
 %description
-The Maven Site Plugin is a plugin that generates a site for the current project.
+The Maven Site Plugin is a plugin that generates a site for the
+current project.
 
 %package javadoc
 
