@@ -1,7 +1,8 @@
 %{?_javapackages_macros:%_javapackages_macros}
 Name:           maven-site-plugin
-Version:        3.3
-Release:        2.1%{?dist}
+Version:        3.4
+Release:        2.1
+Group:		Development/Java
 Summary:        Maven Site Plugin
 License:        ASL 2.0
 URL:            http://maven.apache.org/plugins/maven-site-plugin/
@@ -18,56 +19,44 @@ BuildRequires:  maven-local
 BuildRequires:  mvn(commons-io:commons-io)
 BuildRequires:  mvn(commons-lang:commons-lang)
 BuildRequires:  mvn(javax.servlet:servlet-api)
-BuildRequires:  mvn(junit:junit)
 BuildRequires:  mvn(org.apache.maven.doxia:doxia-core)
 BuildRequires:  mvn(org.apache.maven.doxia:doxia-decoration-model)
 BuildRequires:  mvn(org.apache.maven.doxia:doxia-integration-tools)
 BuildRequires:  mvn(org.apache.maven.doxia:doxia-logging-api)
-BuildRequires:  mvn(org.apache.maven.doxia:doxia-module-apt)
-BuildRequires:  mvn(org.apache.maven.doxia:doxia-module-fml)
-BuildRequires:  mvn(org.apache.maven.doxia:doxia-module-markdown)
 BuildRequires:  mvn(org.apache.maven.doxia:doxia-module-xdoc)
 BuildRequires:  mvn(org.apache.maven.doxia:doxia-module-xhtml)
 BuildRequires:  mvn(org.apache.maven.doxia:doxia-sink-api)
 BuildRequires:  mvn(org.apache.maven.doxia:doxia-site-renderer)
-BuildRequires:  mvn(org.apache.maven.plugin-testing:maven-plugin-testing-harness)
-BuildRequires:  mvn(org.apache.maven.plugin-tools:maven-plugin-annotations)
-BuildRequires:  mvn(org.apache.maven.plugins:maven-plugins)
-BuildRequires:  mvn(org.apache.maven.plugins:maven-shade-plugin)
-BuildRequires:  mvn(org.apache.maven.reporting:maven-reporting-api)
-BuildRequires:  mvn(org.apache.maven.reporting:maven-reporting-exec)
-BuildRequires:  mvn(org.apache.maven.wagon:wagon-provider-api)
 BuildRequires:  mvn(org.apache.maven:maven-archiver)
-BuildRequires:  mvn(org.apache.maven:maven-artifact)
 BuildRequires:  mvn(org.apache.maven:maven-compat)
 BuildRequires:  mvn(org.apache.maven:maven-core)
 BuildRequires:  mvn(org.apache.maven:maven-model)
 BuildRequires:  mvn(org.apache.maven:maven-plugin-api)
 BuildRequires:  mvn(org.apache.maven:maven-settings)
 BuildRequires:  mvn(org.apache.maven:maven-settings-builder)
+BuildRequires:  mvn(org.apache.maven.plugins:maven-plugin-plugin)
+BuildRequires:  mvn(org.apache.maven.plugins:maven-plugins:pom:)
+BuildRequires:  mvn(org.apache.maven.plugins:maven-shade-plugin)
+BuildRequires:  mvn(org.apache.maven.plugin-tools:maven-plugin-annotations)
+BuildRequires:  mvn(org.apache.maven.reporting:maven-reporting-exec)
+BuildRequires:  mvn(org.apache.maven.wagon:wagon-provider-api)
 BuildRequires:  mvn(org.apache.velocity:velocity)
 BuildRequires:  mvn(org.codehaus.plexus:plexus-archiver)
+BuildRequires:  mvn(org.codehaus.plexus:plexus-component-metadata)
 BuildRequires:  mvn(org.codehaus.plexus:plexus-i18n)
 BuildRequires:  mvn(org.codehaus.plexus:plexus-utils)
 BuildRequires:  mvn(org.codehaus.plexus:plexus-velocity)
-BuildRequires:  mvn(org.eclipse.jetty:jetty-client)
 BuildRequires:  mvn(org.eclipse.jetty:jetty-server)
 BuildRequires:  mvn(org.eclipse.jetty:jetty-servlet)
 BuildRequires:  mvn(org.eclipse.jetty:jetty-util)
 BuildRequires:  mvn(org.eclipse.jetty:jetty-webapp)
-BuildRequires:  mvn(org.slf4j:jcl-over-slf4j)
-BuildRequires:  mvn(org.slf4j:slf4j-api)
-BuildRequires:  mvn(org.slf4j:slf4j-simple)
-
-Provides:       maven2-plugin-site = %{version}-%{release}
-Obsoletes:      maven2-plugin-site <= 0:2.0.8
 
 %description
-The Maven Site Plugin is a plugin that generates a site for the
+The Maven Site Plugin is a plugin that generates a site for the 
 current project.
 
 %package javadoc
-
+Group:          Documentation
 Summary:        Javadoc for %{name}
 
 %description javadoc
@@ -87,12 +76,28 @@ API documentation for %{name}.
 %mvn_install
 
 %files -f .mfiles
+%dir %{_javadir}/%{name}
 %doc LICENSE NOTICE
 
 %files javadoc -f .mfiles-javadoc
 %doc LICENSE NOTICE
 
 %changelog
+* Tue Oct 14 2014 Mikolaj Izdebski <mizdebsk@redhat.com> - 3.4-2
+- Remove legacy Obsoletes/Provides for maven2 plugin
+
+* Sun Jul 20 2014 Mikolaj Izdebski <mizdebsk@redhat.com> - 3.4-1
+- Update to upstream version 3.4
+
+* Sat Jun 07 2014 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 3.3-5
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_21_Mass_Rebuild
+
+* Tue Mar 04 2014 Stanislav Ochotnicky <sochotnicky@redhat.com> - 3.3-4
+- Use Requires: java-headless rebuild (#1067528)
+
+* Wed Feb 19 2014 Mikolaj Izdebski <mizdebsk@redhat.com> - 3.3-3
+- Fix unowned directory
+
 * Sat Aug 03 2013 Fedora Release Engineering <rel-eng@lists.fedoraproject.org> - 3.3-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_20_Mass_Rebuild
 
@@ -164,3 +169,4 @@ API documentation for %{name}.
 
 * Tue May 18 2010 Alexander Kurtakov <akurtako@redhat.com> 2.1-1
 - Initial package.
+
