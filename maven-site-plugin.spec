@@ -1,7 +1,7 @@
 %{?_javapackages_macros:%_javapackages_macros}
 Name:           maven-site-plugin
 Version:        3.4
-Release:        2.2
+Release:        2.3
 Group:		Development/Java
 Summary:        Maven Site Plugin
 License:        ASL 2.0
