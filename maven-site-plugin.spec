@@ -5,7 +5,7 @@ Release:        2.3
 Group:		Development/Java
 Summary:        Maven Site Plugin
 License:        ASL 2.0
-URL:            http://maven.apache.org/plugins/maven-site-plugin/
+URL:            https://maven.apache.org/plugins/maven-site-plugin/
 Source0:        http://repo2.maven.org/maven2/org/apache/maven/plugins/%{name}/%{version}/%{name}-%{version}-source-release.zip
 BuildArch:      noarch
 
